@@ -1,0 +1,49 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual environment
+venv/
+.env/
+.env.*
+.env
+
+# SQLite database files
+*.db
+*.sqlite3
+data/*.db
+
+# Test-related
+.pytest_cache/
+coverage/
+htmlcov/
+*.cover
+*.py,cover
+
+# Logs and output
+*.log
+
+# Editor/IDE folders
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+
+# Packaging
+build/
+dist/
+*.egg-info/
+
+# Uvicorn logs
+*.pid
+*.sock
+
+# Misc
+.mypy_cache/
+*.bak

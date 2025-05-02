@@ -1,5 +1,5 @@
 from sqlalchemy.orm import Session
-from .models import User
+from .models import User, Note  
 from app.security.hashing import get_password_hash, verify_password
 
 
@@ -21,3 +21,8 @@ def authenticate_user(db: Session, username: str, password: str):
     if not user or not verify_password(password, user.password_hash):
         return None
     return user
+
+# added helper fucntion to get note by id (see notes.py)
+def get_note_by_id(db: Session, note_id: int):
+    return db.query(Note).filter(Note.id == note_id).first()
+

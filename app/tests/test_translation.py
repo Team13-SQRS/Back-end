@@ -2,8 +2,7 @@ import pytest
 from unittest.mock import patch
 from app.services.translate import TranslationService
 
-# Temporary tests for the TranslationService class
-# Not comprehensive and should be expanded
+# Test successful translation using the TranslationService class
 @patch("app.services.translate.requests.post")
 def test_translate_text_success(mock_post):
     mock_post.return_value.json.return_value = {
@@ -17,7 +16,7 @@ def test_translate_text_success(mock_post):
     result = TranslationService.translate_text("Привет")
     assert result == "Hello"
 
-
+# Test translation failure returns None
 @patch("app.services.translate.requests.post")
 def test_translate_text_failure(mock_post):
     mock_post.side_effect = Exception("API failure")

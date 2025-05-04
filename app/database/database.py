@@ -1,5 +1,5 @@
 from sqlalchemy import create_engine
-from sqlalchemy.orm import declarative_base, sessionmaker # fixed outdated import
+from sqlalchemy.orm import declarative_base, sessionmaker
 import os
 from pathlib import Path
 
@@ -10,7 +10,9 @@ os.makedirs(DATA_DIR, exist_ok=True)
 DATABASE_URL = f"sqlite:///{DATA_DIR}/note_app.db"
 
 engine = create_engine(
-    DATABASE_URL, connect_args={"check_same_thread": False}, echo=True
+    DATABASE_URL,
+    connect_args={"check_same_thread": False},
+    echo=True,
 )
 
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)

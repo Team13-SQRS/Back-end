@@ -3,7 +3,7 @@ from app.routes import notes, auth
 from app.database.database import Base, engine
 from dotenv import load_dotenv
 
-load_dotenv() # Load environment variables from .env file
+load_dotenv()  # Load environment variables from .env file
 
 # Create DB tables
 Base.metadata.create_all(bind=engine)
@@ -17,4 +17,5 @@ app.include_router(auth.router, prefix="/auth", tags=["Authentication"])
 
 if __name__ == "__main__":
     import uvicorn
+
     uvicorn.run(app, host="127.0.0.1", port=8000)

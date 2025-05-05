@@ -12,7 +12,7 @@ Base.metadata.create_all(bind=engine)
 app = FastAPI()
 
 # Include routers
-app.include_router(notes.router, prefix="/api", tags=["notes"])
+app.include_router(notes.router, prefix="/api/notes", tags=["notes"])
 app.include_router(auth.router, prefix="/auth", tags=["Authentication"])
 
 if __name__ == "__main__":

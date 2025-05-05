@@ -23,6 +23,38 @@ def authenticate_user(db: Session, username: str, password: str):
     return user
 
 
-# added helper fucntion to get note by id (see notes.py)
 def get_note_by_id(db: Session, note_id: int):
     return db.query(Note).filter(Note.id == note_id).first()
+
+
+def create_note(db: Session, title: str, content: str, user_id: int):
+    db_note = Note(title=title, content=content, user_id=user_id)
+    db.add(db_note)
+    db.commit()
+    db.refresh(db_note)
+    return db_note
+
+
+def update_note(db: Session, note_id: int, title: str = None, content: str = None):
+    note = get_note_by_id(db, note_id)
+    if title is not None:
+        note.title = title
+    if content is not None:
+        note.content = content
+    db.commit()
+    db.refresh(note)
+    return note
+
+
+def delete_note(db: Session, note_id: int):
+    note = get_note_by_id(db, note_id)
+    if note:
+        db.delete(note)
+        db.commit()
+    return note
+
+
+def get_user_notes(db: Session, user_id: int, skip: int = 0, limit: int = 100):
+    return (
+        db.query(Note).filter(Note.user_id == user_id).offset(skip).limit(limit).all()
+    )

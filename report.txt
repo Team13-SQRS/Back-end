@@ -1,0 +1,419 @@
+Running flake8...
+Running black...
+Running mypy...
+app/tests/test_auth.py:1: error: Cannot find implementation or library stub for module named "fastapi"  [import-not-found]
+app/tests/test_auth.py:5: error: Function is missing a type annotation  [no-untyped-def]
+app/tests/test_auth.py:16: error: Function is missing a type annotation  [no-untyped-def]
+app/tests/test_auth.py:24: error: Function is missing a type annotation  [no-untyped-def]
+app/tests/test_auth.py:36: error: Function is missing a type annotation  [no-untyped-def]
+app/tests/test_auth.py:44: error: Function is missing a type annotation  [no-untyped-def]
+app/tests/test_auth.py:52: error: Function is missing a type annotation  [no-untyped-def]
+app/tests/test_auth.py:67: error: Function is missing a type annotation  [no-untyped-def]
+app/database/database.py:2: error: Cannot find implementation or library stub for module named "sqlalchemy"  [import-not-found]
+app/database/database.py:3: error: Cannot find implementation or library stub for module named "sqlalchemy.orm"  [import-not-found]
+app/database/models.py:1: error: Cannot find implementation or library stub for module named "sqlalchemy"  [import-not-found]
+app/database/models.py:2: error: Cannot find implementation or library stub for module named "sqlalchemy.sql"  [import-not-found]
+app/database/init_db.py:3: error: Cannot find implementation or library stub for module named "sqlalchemy"  [import-not-found]
+app/database/crud.py:2: error: Cannot find implementation or library stub for module named "sqlalchemy.orm"  [import-not-found]
+app/database/crud.py:17: error: Returning Any from function declared to return "User | None"  [no-any-return]
+app/database/crud.py:28: error: Returning Any from function declared to return "Note | None"  [no-any-return]
+app/__init__.py:4: error: Cannot find implementation or library stub for module named "sqlalchemy.orm"  [import-not-found]
+app/__init__.py:4: note: See https://mypy.readthedocs.io/en/stable/running_mypy.html#missing-imports
+app/security/tokens.py:4: error: Cannot find implementation or library stub for module named "dotenv"  [import-not-found]
+app/routes/auth.py:1: error: Cannot find implementation or library stub for module named "fastapi"  [import-not-found]
+app/routes/auth.py:2: error: Cannot find implementation or library stub for module named "sqlalchemy.orm"  [import-not-found]
+app/routes/auth.py:6: error: Cannot find implementation or library stub for module named "pydantic"  [import-not-found]
+app/routes/auth.py:21: error: Untyped decorator makes function "signup" untyped  [misc]
+app/routes/auth.py:22: error: Function is missing a return type annotation  [no-untyped-def]
+app/routes/auth.py:30: error: Untyped decorator makes function "login" untyped  [misc]
+app/routes/auth.py:31: error: Function is missing a return type annotation  [no-untyped-def]
+app/auth/dependencies.py:2: error: Cannot find implementation or library stub for module named "fastapi"  [import-not-found]
+app/auth/dependencies.py:3: error: Cannot find implementation or library stub for module named "fastapi.security"  [import-not-found]
+app/auth/dependencies.py:8: error: Cannot find implementation or library stub for module named "sqlalchemy.orm"  [import-not-found]
+app/tests/test_translation.py:7: error: Function is missing a type annotation  [no-untyped-def]
+app/tests/test_translation.py:18: error: Function is missing a type annotation  [no-untyped-def]
+app/routes/notes.py:1: error: Cannot find implementation or library stub for module named "fastapi"  [import-not-found]
+app/routes/notes.py:5: error: Cannot find implementation or library stub for module named "pydantic"  [import-not-found]
+app/routes/notes.py:6: error: Cannot find implementation or library stub for module named "sqlalchemy.orm"  [import-not-found]
+app/routes/notes.py:16: error: Untyped decorator makes function "translate_note" untyped  [misc]
+app/routes/notes.py:17: error: Function is missing a return type annotation  [no-untyped-def]
+app/routes/notes.py:17: error: Function is missing a type annotation for one or more arguments  [no-untyped-def]
+app/main.py:1: error: Cannot find implementation or library stub for module named "fastapi"  [import-not-found]
+app/main.py:4: error: Cannot find implementation or library stub for module named "dotenv"  [import-not-found]
+app/main.py:19: error: Cannot find implementation or library stub for module named "uvicorn"  [import-not-found]
+app/tests/test_notes.py:2: error: Cannot find implementation or library stub for module named "fastapi"  [import-not-found]
+app/tests/test_notes.py:8: error: Function is missing a type annotation  [no-untyped-def]
+app/tests/test_notes.py:18: error: Function is missing a type annotation  [no-untyped-def]
+app/tests/test_notes.py:27: error: Function is missing a type annotation  [no-untyped-def]
+app/tests/test_notes.py:40: error: Function is missing a type annotation  [no-untyped-def]
+app/tests/test_notes.py:48: error: Function is missing a type annotation  [no-untyped-def]
+app/tests/test_notes.py:57: error: Function is missing a type annotation  [no-untyped-def]
+app/tests/test_notes.py:63: error: Function is missing a type annotation  [no-untyped-def]
+app/tests/test_notes.py:76: error: Function is missing a type annotation  [no-untyped-def]
+app/tests/test_notes.py:82: error: Function is missing a type annotation  [no-untyped-def]
+app/tests/test_notes.py:91: error: Function is missing a type annotation  [no-untyped-def]
+app/tests/conftest.py:2: error: Cannot find implementation or library stub for module named "fastapi.testclient"  [import-not-found]
+app/tests/conftest.py:3: error: Cannot find implementation or library stub for module named "sqlalchemy"  [import-not-found]
+app/tests/conftest.py:4: error: Cannot find implementation or library stub for module named "sqlalchemy.orm"  [import-not-found]
+app/tests/conftest.py:5: error: Cannot find implementation or library stub for module named "sqlalchemy.pool"  [import-not-found]
+app/tests/conftest.py:22: error: Function is missing a return type annotation  [no-untyped-def]
+app/tests/conftest.py:29: error: Function is missing a type annotation  [no-untyped-def]
+app/tests/conftest.py:42: error: Function is missing a type annotation  [no-untyped-def]
+app/tests/conftest.py:43: error: Function is missing a return type annotation  [no-untyped-def]
+app/tests/conftest.py:56: error: Function is missing a type annotation  [no-untyped-def]
+Found 59 errors in 14 files (checked 19 source files)
+Running bandit...
+Run started:2025-05-04 17:58:15.518945
+
+Test results:
+>> Issue: [B608:hardcoded_sql_expressions] Possible SQL injection vector through string-based query construction.
+   Severity: Medium   Confidence: Medium
+   CWE: CWE-89 (https://cwe.mitre.org/data/definitions/89.html)
+   More Info: https://bandit.readthedocs.io/en/1.7.5/plugins/b608_hardcoded_sql_expressions.html
+   Location: app/__init__.py:21:25
+20	        print(f"\nTable: {table_name}")
+21	        cursor.execute(f"SELECT * FROM {table_name};")
+22	        rows = cursor.fetchall()
+
+--------------------------------------------------
+>> Issue: [B105:hardcoded_password_string] Possible hardcoded password: 'mysecretpassword'
+   Severity: Low   Confidence: Medium
+   CWE: CWE-259 (https://cwe.mitre.org/data/definitions/259.html)
+   More Info: https://bandit.readthedocs.io/en/1.7.5/plugins/b105_hardcoded_password_string.html
+   Location: app/__init__.py:34:15
+33	    username = "alex"
+34	    password = "mysecretpassword"
+35	    print(f"User: {username}\tPassword: {password}")
+
+--------------------------------------------------
+
+Code scanned:
+	Total lines of code: 473
+	Total lines skipped (#nosec): 0
+	Total potential issues skipped due to specifically being disabled (e.g., #nosec BXXX): 0
+
+Run metrics:
+	Total issues (by severity):
+		Undefined: 0
+		Low: 1
+		Medium: 1
+		High: 0
+	Total issues (by confidence):
+		Undefined: 0
+		Low: 0
+		Medium: 2
+		High: 0
+Files skipped (0):
+Running pytest with coverage...
+Running mutation testing...
+Running performance benchmarks...
+Running load tests with locust...
+Running flake8...
+Running black...
+Running mypy...
+app/tests/test_auth.py:1: error: Cannot find implementation or library stub for module named "fastapi"  [import-not-found]
+app/tests/test_auth.py:5: error: Function is missing a type annotation  [no-untyped-def]
+app/tests/test_auth.py:16: error: Function is missing a type annotation  [no-untyped-def]
+app/tests/test_auth.py:24: error: Function is missing a type annotation  [no-untyped-def]
+app/tests/test_auth.py:36: error: Function is missing a type annotation  [no-untyped-def]
+app/tests/test_auth.py:44: error: Function is missing a type annotation  [no-untyped-def]
+app/tests/test_auth.py:52: error: Function is missing a type annotation  [no-untyped-def]
+app/tests/test_auth.py:67: error: Function is missing a type annotation  [no-untyped-def]
+app/security/tokens.py:4: error: Cannot find implementation or library stub for module named "dotenv"  [import-not-found]
+app/tests/test_translation.py:7: error: Function is missing a type annotation  [no-untyped-def]
+app/tests/test_translation.py:18: error: Function is missing a type annotation  [no-untyped-def]
+app/database/models.py:6: error: Variable "app.database.database.Base" is not valid as a type  [valid-type]
+app/database/models.py:6: note: See https://mypy.readthedocs.io/en/stable/common_issues.html#variables-vs-type-aliases
+app/database/models.py:6: error: Invalid base class "Base"  [misc]
+app/database/models.py:16: error: Variable "app.database.database.Base" is not valid as a type  [valid-type]
+app/database/models.py:16: note: See https://mypy.readthedocs.io/en/stable/common_issues.html#variables-vs-type-aliases
+app/database/models.py:16: error: Invalid base class "Base"  [misc]
+app/database/models.py:27: error: Variable "app.database.database.Base" is not valid as a type  [valid-type]
+app/database/models.py:27: note: See https://mypy.readthedocs.io/en/stable/common_issues.html#variables-vs-type-aliases
+app/database/models.py:27: error: Invalid base class "Base"  [misc]
+app/tests/test_notes.py:2: error: Cannot find implementation or library stub for module named "fastapi"  [import-not-found]
+app/tests/test_notes.py:8: error: Function is missing a type annotation  [no-untyped-def]
+app/tests/test_notes.py:18: error: Function is missing a type annotation  [no-untyped-def]
+app/tests/test_notes.py:27: error: Function is missing a type annotation  [no-untyped-def]
+app/tests/test_notes.py:40: error: Function is missing a type annotation  [no-untyped-def]
+app/tests/test_notes.py:48: error: Function is missing a type annotation  [no-untyped-def]
+app/tests/test_notes.py:57: error: Function is missing a type annotation  [no-untyped-def]
+app/tests/test_notes.py:63: error: Function is missing a type annotation  [no-untyped-def]
+app/tests/test_notes.py:76: error: Function is missing a type annotation  [no-untyped-def]
+app/tests/test_notes.py:82: error: Function is missing a type annotation  [no-untyped-def]
+app/tests/test_notes.py:91: error: Function is missing a type annotation  [no-untyped-def]
+app/routes/auth.py:1: error: Cannot find implementation or library stub for module named "fastapi"  [import-not-found]
+app/routes/auth.py:6: error: Cannot find implementation or library stub for module named "pydantic"  [import-not-found]
+app/routes/auth.py:21: error: Untyped decorator makes function "signup" untyped  [misc]
+app/routes/auth.py:22: error: Function is missing a return type annotation  [no-untyped-def]
+app/routes/auth.py:30: error: Untyped decorator makes function "login" untyped  [misc]
+app/routes/auth.py:31: error: Function is missing a return type annotation  [no-untyped-def]
+app/auth/dependencies.py:2: error: Cannot find implementation or library stub for module named "fastapi"  [import-not-found]
+app/auth/dependencies.py:3: error: Cannot find implementation or library stub for module named "fastapi.security"  [import-not-found]
+app/auth/dependencies.py:3: note: See https://mypy.readthedocs.io/en/stable/running_mypy.html#missing-imports
+app/routes/notes.py:1: error: Cannot find implementation or library stub for module named "fastapi"  [import-not-found]
+app/routes/notes.py:5: error: Cannot find implementation or library stub for module named "pydantic"  [import-not-found]
+app/routes/notes.py:16: error: Untyped decorator makes function "translate_note" untyped  [misc]
+app/routes/notes.py:17: error: Function is missing a return type annotation  [no-untyped-def]
+app/routes/notes.py:17: error: Function is missing a type annotation for one or more arguments  [no-untyped-def]
+app/routes/notes.py:29: error: Argument 1 to "translate_text" of "TranslationService" has incompatible type "Column"; expected "str"  [arg-type]
+app/main.py:1: error: Cannot find implementation or library stub for module named "fastapi"  [import-not-found]
+app/main.py:4: error: Cannot find implementation or library stub for module named "dotenv"  [import-not-found]
+app/main.py:19: error: Cannot find implementation or library stub for module named "uvicorn"  [import-not-found]
+app/tests/conftest.py:2: error: Cannot find implementation or library stub for module named "fastapi.testclient"  [import-not-found]
+app/tests/conftest.py:22: error: Function is missing a return type annotation  [no-untyped-def]
+app/tests/conftest.py:29: error: Function is missing a type annotation  [no-untyped-def]
+app/tests/conftest.py:42: error: Function is missing a type annotation  [no-untyped-def]
+app/tests/conftest.py:43: error: Function is missing a return type annotation  [no-untyped-def]
+app/tests/conftest.py:56: error: Function is missing a type annotation  [no-untyped-def]
+Found 51 errors in 10 files (checked 19 source files)
+Running bandit...
+Run started:2025-05-04 18:08:11.473906
+
+Test results:
+>> Issue: [B608:hardcoded_sql_expressions] Possible SQL injection vector through string-based query construction.
+   Severity: Medium   Confidence: Medium
+   CWE: CWE-89 (https://cwe.mitre.org/data/definitions/89.html)
+   More Info: https://bandit.readthedocs.io/en/1.7.5/plugins/b608_hardcoded_sql_expressions.html
+   Location: app/__init__.py:21:25
+20	        print(f"\nTable: {table_name}")
+21	        cursor.execute(f"SELECT * FROM {table_name};")
+22	        rows = cursor.fetchall()
+
+--------------------------------------------------
+>> Issue: [B105:hardcoded_password_string] Possible hardcoded password: 'mysecretpassword'
+   Severity: Low   Confidence: Medium
+   CWE: CWE-259 (https://cwe.mitre.org/data/definitions/259.html)
+   More Info: https://bandit.readthedocs.io/en/1.7.5/plugins/b105_hardcoded_password_string.html
+   Location: app/__init__.py:34:15
+33	    username = "alex"
+34	    password = "mysecretpassword"
+35	    print(f"User: {username}\tPassword: {password}")
+
+--------------------------------------------------
+
+Code scanned:
+	Total lines of code: 473
+	Total lines skipped (#nosec): 0
+	Total potential issues skipped due to specifically being disabled (e.g., #nosec BXXX): 0
+
+Run metrics:
+	Total issues (by severity):
+		Undefined: 0
+		Low: 1
+		Medium: 1
+		High: 0
+	Total issues (by confidence):
+		Undefined: 0
+		Low: 0
+		Medium: 2
+		High: 0
+Files skipped (0):
+Running pytest with coverage...
+Running mutation testing...
+Running performance benchmarks...
+Running load tests with locust...
+Running flake8...
+app/database/crud.py:2:31: W291 trailing whitespace
+Running black...
+Running mypy...
+app/tests/test_auth.py:1: error: Cannot find implementation or library stub for module named "fastapi"  [import-not-found]
+app/tests/test_auth.py:5: error: Function is missing a type annotation  [no-untyped-def]
+app/tests/test_auth.py:16: error: Function is missing a type annotation  [no-untyped-def]
+app/tests/test_auth.py:24: error: Function is missing a type annotation  [no-untyped-def]
+app/tests/test_auth.py:36: error: Function is missing a type annotation  [no-untyped-def]
+app/tests/test_auth.py:44: error: Function is missing a type annotation  [no-untyped-def]
+app/tests/test_auth.py:52: error: Function is missing a type annotation  [no-untyped-def]
+app/tests/test_auth.py:67: error: Function is missing a type annotation  [no-untyped-def]
+app/security/tokens.py:4: error: Cannot find implementation or library stub for module named "dotenv"  [import-not-found]
+app/tests/test_translation.py:7: error: Function is missing a type annotation  [no-untyped-def]
+app/tests/test_translation.py:18: error: Function is missing a type annotation  [no-untyped-def]
+app/database/models.py:6: error: Variable "app.database.database.Base" is not valid as a type  [valid-type]
+app/database/models.py:6: note: See https://mypy.readthedocs.io/en/stable/common_issues.html#variables-vs-type-aliases
+app/database/models.py:6: error: Invalid base class "Base"  [misc]
+app/database/models.py:16: error: Variable "app.database.database.Base" is not valid as a type  [valid-type]
+app/database/models.py:16: note: See https://mypy.readthedocs.io/en/stable/common_issues.html#variables-vs-type-aliases
+app/database/models.py:16: error: Invalid base class "Base"  [misc]
+app/database/models.py:27: error: Variable "app.database.database.Base" is not valid as a type  [valid-type]
+app/database/models.py:27: note: See https://mypy.readthedocs.io/en/stable/common_issues.html#variables-vs-type-aliases
+app/database/models.py:27: error: Invalid base class "Base"  [misc]
+app/tests/test_notes.py:2: error: Cannot find implementation or library stub for module named "fastapi"  [import-not-found]
+app/tests/test_notes.py:8: error: Function is missing a type annotation  [no-untyped-def]
+app/tests/test_notes.py:18: error: Function is missing a type annotation  [no-untyped-def]
+app/tests/test_notes.py:27: error: Function is missing a type annotation  [no-untyped-def]
+app/tests/test_notes.py:40: error: Function is missing a type annotation  [no-untyped-def]
+app/tests/test_notes.py:48: error: Function is missing a type annotation  [no-untyped-def]
+app/tests/test_notes.py:57: error: Function is missing a type annotation  [no-untyped-def]
+app/tests/test_notes.py:63: error: Function is missing a type annotation  [no-untyped-def]
+app/tests/test_notes.py:76: error: Function is missing a type annotation  [no-untyped-def]
+app/tests/test_notes.py:82: error: Function is missing a type annotation  [no-untyped-def]
+app/tests/test_notes.py:91: error: Function is missing a type annotation  [no-untyped-def]
+app/database/crud.py:6: error: Function is missing a return type annotation  [no-untyped-def]
+app/database/crud.py:15: error: Function is missing a return type annotation  [no-untyped-def]
+app/database/crud.py:20: error: Function is missing a return type annotation  [no-untyped-def]
+app/database/crud.py:24: error: Function is missing a return type annotation  [no-untyped-def]
+app/auth/dependencies.py:2: error: Cannot find implementation or library stub for module named "fastapi"  [import-not-found]
+app/auth/dependencies.py:3: error: Cannot find implementation or library stub for module named "fastapi.security"  [import-not-found]
+app/auth/dependencies.py:3: note: See https://mypy.readthedocs.io/en/stable/running_mypy.html#missing-imports
+app/auth/dependencies.py:31: error: Returning Any from function declared to return "User"  [no-any-return]
+app/routes/notes.py:1: error: Cannot find implementation or library stub for module named "fastapi"  [import-not-found]
+app/routes/notes.py:5: error: Cannot find implementation or library stub for module named "pydantic"  [import-not-found]
+app/routes/notes.py:16: error: Untyped decorator makes function "translate_note" untyped  [misc]
+app/routes/notes.py:17: error: Function is missing a return type annotation  [no-untyped-def]
+app/routes/notes.py:17: error: Function is missing a type annotation for one or more arguments  [no-untyped-def]
+app/routes/auth.py:1: error: Cannot find implementation or library stub for module named "fastapi"  [import-not-found]
+app/routes/auth.py:7: error: Cannot find implementation or library stub for module named "pydantic"  [import-not-found]
+app/routes/auth.py:22: error: Untyped decorator makes function "signup" untyped  [misc]
+app/routes/auth.py:23: error: Function is missing a return type annotation  [no-untyped-def]
+app/routes/auth.py:31: error: Untyped decorator makes function "login" untyped  [misc]
+app/routes/auth.py:32: error: Function is missing a return type annotation  [no-untyped-def]
+app/routes/auth.py:41: error: Function is missing a type annotation  [no-untyped-def]
+app/main.py:1: error: Cannot find implementation or library stub for module named "fastapi"  [import-not-found]
+app/main.py:4: error: Cannot find implementation or library stub for module named "dotenv"  [import-not-found]
+app/main.py:19: error: Cannot find implementation or library stub for module named "uvicorn"  [import-not-found]
+app/tests/conftest.py:2: error: Cannot find implementation or library stub for module named "fastapi.testclient"  [import-not-found]
+app/tests/conftest.py:22: error: Function is missing a return type annotation  [no-untyped-def]
+app/tests/conftest.py:29: error: Function is missing a type annotation  [no-untyped-def]
+app/tests/conftest.py:42: error: Function is missing a type annotation  [no-untyped-def]
+app/tests/conftest.py:43: error: Function is missing a return type annotation  [no-untyped-def]
+app/tests/conftest.py:56: error: Function is missing a type annotation  [no-untyped-def]
+Found 56 errors in 11 files (checked 19 source files)
+Running bandit...
+Run started:2025-05-04 18:14:34.730880
+
+Test results:
+>> Issue: [B608:hardcoded_sql_expressions] Possible SQL injection vector through string-based query construction.
+   Severity: Medium   Confidence: Medium
+   CWE: CWE-89 (https://cwe.mitre.org/data/definitions/89.html)
+   More Info: https://bandit.readthedocs.io/en/1.7.5/plugins/b608_hardcoded_sql_expressions.html
+   Location: app/__init__.py:21:25
+20	        print(f"\nTable: {table_name}")
+21	        cursor.execute(f"SELECT * FROM {table_name};")
+22	        rows = cursor.fetchall()
+
+--------------------------------------------------
+>> Issue: [B105:hardcoded_password_string] Possible hardcoded password: 'mysecretpassword'
+   Severity: Low   Confidence: Medium
+   CWE: CWE-259 (https://cwe.mitre.org/data/definitions/259.html)
+   More Info: https://bandit.readthedocs.io/en/1.7.5/plugins/b105_hardcoded_password_string.html
+   Location: app/__init__.py:34:15
+33	    username = "alex"
+34	    password = "mysecretpassword"
+35	    print(f"User: {username}\tPassword: {password}")
+
+--------------------------------------------------
+
+Code scanned:
+	Total lines of code: 476
+	Total lines skipped (#nosec): 0
+	Total potential issues skipped due to specifically being disabled (e.g., #nosec BXXX): 0
+
+Run metrics:
+	Total issues (by severity):
+		Undefined: 0
+		Low: 1
+		Medium: 1
+		High: 0
+	Total issues (by confidence):
+		Undefined: 0
+		Low: 0
+		Medium: 2
+		High: 0
+Files skipped (0):
+Running pytest with coverage...
+Running mutation testing...
+Running performance benchmarks...
+Running load tests with locust...
+Running flake8...
+Running black...
+Running mypy...
+app/tests/test_translation.py:7: error: Function is missing a type annotation  [no-untyped-def]
+app/tests/test_translation.py:18: error: Function is missing a type annotation  [no-untyped-def]
+app/tests/test_auth.py:5: error: Function is missing a type annotation  [no-untyped-def]
+app/tests/test_auth.py:16: error: Function is missing a type annotation  [no-untyped-def]
+app/tests/test_auth.py:24: error: Function is missing a type annotation  [no-untyped-def]
+app/tests/test_auth.py:36: error: Function is missing a type annotation  [no-untyped-def]
+app/tests/test_auth.py:44: error: Function is missing a type annotation  [no-untyped-def]
+app/tests/test_auth.py:52: error: Function is missing a type annotation  [no-untyped-def]
+app/tests/test_auth.py:67: error: Function is missing a type annotation  [no-untyped-def]
+app/database/models.py:6: error: Variable "app.database.database.Base" is not valid as a type  [valid-type]
+app/database/models.py:6: note: See https://mypy.readthedocs.io/en/stable/common_issues.html#variables-vs-type-aliases
+app/database/models.py:6: error: Invalid base class "Base"  [misc]
+app/database/models.py:16: error: Variable "app.database.database.Base" is not valid as a type  [valid-type]
+app/database/models.py:16: note: See https://mypy.readthedocs.io/en/stable/common_issues.html#variables-vs-type-aliases
+app/database/models.py:16: error: Invalid base class "Base"  [misc]
+app/database/models.py:27: error: Variable "app.database.database.Base" is not valid as a type  [valid-type]
+app/database/models.py:27: note: See https://mypy.readthedocs.io/en/stable/common_issues.html#variables-vs-type-aliases
+app/database/models.py:27: error: Invalid base class "Base"  [misc]
+app/tests/test_notes.py:8: error: Function is missing a type annotation  [no-untyped-def]
+app/tests/test_notes.py:18: error: Function is missing a type annotation  [no-untyped-def]
+app/tests/test_notes.py:27: error: Function is missing a type annotation  [no-untyped-def]
+app/tests/test_notes.py:40: error: Function is missing a type annotation  [no-untyped-def]
+app/tests/test_notes.py:48: error: Function is missing a type annotation  [no-untyped-def]
+app/tests/test_notes.py:57: error: Function is missing a type annotation  [no-untyped-def]
+app/tests/test_notes.py:63: error: Function is missing a type annotation  [no-untyped-def]
+app/tests/test_notes.py:76: error: Function is missing a type annotation  [no-untyped-def]
+app/tests/test_notes.py:82: error: Function is missing a type annotation  [no-untyped-def]
+app/tests/test_notes.py:91: error: Function is missing a type annotation  [no-untyped-def]
+app/database/crud.py:6: error: Function is missing a return type annotation  [no-untyped-def]
+app/database/crud.py:15: error: Function is missing a return type annotation  [no-untyped-def]
+app/database/crud.py:20: error: Function is missing a return type annotation  [no-untyped-def]
+app/database/crud.py:24: error: Function is missing a return type annotation  [no-untyped-def]
+app/auth/dependencies.py:31: error: Returning Any from function declared to return "User"  [no-any-return]
+app/routes/notes.py:17: error: Function is missing a return type annotation  [no-untyped-def]
+app/routes/notes.py:17: error: Function is missing a type annotation for one or more arguments  [no-untyped-def]
+app/routes/auth.py:23: error: Function is missing a return type annotation  [no-untyped-def]
+app/routes/auth.py:32: error: Function is missing a return type annotation  [no-untyped-def]
+app/routes/auth.py:41: error: Function is missing a type annotation  [no-untyped-def]
+app/tests/conftest.py:22: error: Function is missing a return type annotation  [no-untyped-def]
+app/tests/conftest.py:29: error: Function is missing a type annotation  [no-untyped-def]
+app/tests/conftest.py:42: error: Function is missing a type annotation  [no-untyped-def]
+app/tests/conftest.py:43: error: Function is missing a return type annotation  [no-untyped-def]
+app/tests/conftest.py:56: error: Function is missing a type annotation  [no-untyped-def]
+Found 40 errors in 9 files (checked 19 source files)
+Running bandit...
+Run started:2025-05-04 18:51:53.942111
+
+Test results:
+>> Issue: [B608:hardcoded_sql_expressions] Possible SQL injection vector through string-based query construction.
+   Severity: Medium   Confidence: Medium
+   CWE: CWE-89 (https://cwe.mitre.org/data/definitions/89.html)
+   More Info: https://bandit.readthedocs.io/en/1.7.5/plugins/b608_hardcoded_sql_expressions.html
+   Location: app/__init__.py:21:25
+20	        print(f"\nTable: {table_name}")
+21	        cursor.execute(f"SELECT * FROM {table_name};")
+22	        rows = cursor.fetchall()
+
+--------------------------------------------------
+>> Issue: [B105:hardcoded_password_string] Possible hardcoded password: 'mysecretpassword'
+   Severity: Low   Confidence: Medium
+   CWE: CWE-259 (https://cwe.mitre.org/data/definitions/259.html)
+   More Info: https://bandit.readthedocs.io/en/1.7.5/plugins/b105_hardcoded_password_string.html
+   Location: app/__init__.py:34:15
+33	    username = "alex"
+34	    password = "mysecretpassword"
+35	    print(f"User: {username}\tPassword: {password}")
+
+--------------------------------------------------
+
+Code scanned:
+	Total lines of code: 476
+	Total lines skipped (#nosec): 0
+	Total potential issues skipped due to specifically being disabled (e.g., #nosec BXXX): 0
+
+Run metrics:
+	Total issues (by severity):
+		Undefined: 0
+		Low: 1
+		Medium: 1
+		High: 0
+	Total issues (by confidence):
+		Undefined: 0
+		Low: 0
+		Medium: 2
+		High: 0
+Files skipped (0):
+Running pytest with coverage...
+Running mutation testing...
+Running performance benchmarks...
+Running load tests with locust...

@@ -1,6 +1,7 @@
 import requests
 from typing import Optional
 import os
+from tenacity import retry, stop_after_attempt, wait_fixed, RetryError
 
 TRANSLATE_URL = "https://deep-translate1.p.rapidapi.com/language/translate/v2"
 HEADERS = {
@@ -9,18 +10,18 @@ HEADERS = {
     "Content-Type": "application/json",
 }
 
+def return_none(retry_state):
+    return None
 
 class TranslationService:
     @staticmethod
+    @retry(stop=stop_after_attempt(3), wait=wait_fixed(2), retry_error_callback=return_none)
     def translate_text(
         text: str, source_lang: str = "ru", target_lang: str = "en"
     ) -> Optional[str]:
         payload = {"q": text, "source": source_lang, "target": target_lang}
-        try:
-            response = requests.post(
-                TRANSLATE_URL, json=payload, headers=HEADERS, timeout=5
-            )
-            response.raise_for_status()
-            return response.json()["data"]["translations"]["translatedText"]
-        except Exception:
-            return None
+        response = requests.post(
+            TRANSLATE_URL, json=payload, headers=HEADERS, timeout=5
+        )
+        response.raise_for_status()
+        return response.json()["data"]["translations"]["translatedText"]

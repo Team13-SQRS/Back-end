@@ -8,6 +8,7 @@ from app.database.crud import (
 from app.database.database import get_db
 from app.security.tokens import create_access_token
 from pydantic import BaseModel
+from app.auth.dependencies import get_current_user
 
 router = APIRouter()
 
@@ -44,3 +45,8 @@ def login(request: LoginRequest, db: Session = Depends(get_db)):
         "access_token": access_token,
         "token_type": "bearer",
     }
+
+
+@router.get("/me")
+def get_current_user_info(current_user=Depends(get_current_user)):
+    return {"username": current_user.username, "id": current_user.id}

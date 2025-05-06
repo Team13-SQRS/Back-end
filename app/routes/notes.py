@@ -1,4 +1,4 @@
-from fastapi import APIRouter, HTTPException, Depends
+from fastapi import APIRouter, HTTPException, Depends, status
 from app.database import crud
 from app.services.translate import TranslationService
 from app.auth.dependencies import (
@@ -13,6 +13,39 @@ from datetime import datetime
 router = APIRouter()
 
 
+# --------------- Helper Functions ---------------
+def verify_note_ownership(note_id: int,
+                          user_id: int,
+                          db: Session
+                          ) -> crud.Note:
+    """Verify note exists and user has ownership.
+
+    Args:
+        note_id: Target note ID
+        user_id: Authenticated user ID
+        db: Database session
+
+    Returns:
+        Note: Verified note object
+
+    Raises:
+        HTTPException: 404 if not found, 403 if unauthorized
+    """
+    note = crud.get_note_by_id(db, note_id)
+    if not note:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Note resource not found"
+        )
+    if note.user_id != user_id:
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Unauthorized note access"
+        )
+    return note
+
+
+# --------------- Pydantic Models ---------------
 class NoteBase(BaseModel):
     title: str
     content: str
@@ -41,28 +74,25 @@ class TranslateNoteResponse(BaseModel):
     translated_text: str
 
 
+# --------------- Route Handlers ---------------
 @router.post("/", response_model=NoteResponse)
 def create_note(
     note: NoteCreate,
     db: Session = Depends(get_db),
     current_user=Depends(get_current_user),
 ):
-    db_note = crud.create_note(db, note.title, note.content, current_user.id)
-    return db_note
+    """Create a new note for the authenticated user."""
+    return crud.create_note(db, note.title, note.content, current_user.id)
 
 
 @router.get("/{note_id}", response_model=NoteResponse)
 def get_note(
-    note_id: int, db: Session = Depends(get_db), current_user=Depends(get_current_user)
+    note_id: int,
+    db: Session = Depends(get_db),
+    current_user=Depends(get_current_user)
 ):
-    note = crud.get_note_by_id(db, note_id)
-    if not note:
-        raise HTTPException(status_code=404, detail="Note not found")
-    if note.user_id != current_user.id:
-        raise HTTPException(
-            status_code=403, detail="Not authorized to access this note"
-        )
-    return note
+    """Retrieve a specific note with authorization check."""
+    return verify_note_ownership(note_id, current_user.id, db)
 
 
 @router.put("/{note_id}", response_model=NoteResponse)
@@ -72,30 +102,23 @@ def update_note(
     db: Session = Depends(get_db),
     current_user=Depends(get_current_user),
 ):
-    note = crud.get_note_by_id(db, note_id)
-    if not note:
-        raise HTTPException(status_code=404, detail="Note not found")
-    if note.user_id != current_user.id:
-        raise HTTPException(
-            status_code=403, detail="Not authorized to update this note"
-        )
-    updated_note = crud.update_note(
-        db, note_id, title=note_update.title, content=note_update.content
+    """Update note details with partial data."""
+    verify_note_ownership(note_id, current_user.id, db)
+    return crud.update_note(
+        db, note_id,
+        title=note_update.title,
+        content=note_update.content
     )
-    return updated_note
 
 
 @router.delete("/{note_id}")
 def delete_note(
-    note_id: int, db: Session = Depends(get_db), current_user=Depends(get_current_user)
+    note_id: int,
+    db: Session = Depends(get_db),
+    current_user=Depends(get_current_user)
 ):
-    note = crud.get_note_by_id(db, note_id)
-    if not note:
-        raise HTTPException(status_code=404, detail="Note not found")
-    if note.user_id != current_user.id:
-        raise HTTPException(
-            status_code=403, detail="Not authorized to delete this note"
-        )
+    """Permanently delete a note."""
+    verify_note_ownership(note_id, current_user.id, db)
     crud.delete_note(db, note_id)
     return {"message": "Note deleted successfully"}
 
@@ -107,8 +130,8 @@ def list_notes(
     db: Session = Depends(get_db),
     current_user=Depends(get_current_user),
 ):
-    notes = crud.get_user_notes(db, current_user.id, skip=skip, limit=limit)
-    return notes
+    """List all notes for the authenticated user."""
+    return crud.get_user_notes(db, current_user.id, skip=skip, limit=limit)
 
 
 @router.post("/{note_id}/translate", response_model=TranslateNoteResponse)
@@ -117,14 +140,8 @@ def translate_note(
     db: Session = Depends(get_db),
     current_user=Depends(get_current_user),
 ):
-    note = crud.get_note_by_id(db, note_id)
-    if not note:
-        raise HTTPException(status_code=404, detail="Note not found")
-    if note.user_id != current_user.id:
-        raise HTTPException(
-            status_code=403,
-            detail="Not authorized to translate this note",
-        )
+    """Translate note content using external service."""
+    note = verify_note_ownership(note_id, current_user.id, db)
     translated_text = TranslationService.translate_text(
         note.content,
         source_lang="ru",

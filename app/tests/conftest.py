@@ -15,7 +15,11 @@ engine = create_engine(
     connect_args={"check_same_thread": False},
     poolclass=StaticPool,
 )
-TestingSessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+TestingSessionLocal = sessionmaker(
+    autocommit=False,
+    autoflush=False,
+    bind=engine
+    )
 
 
 @pytest.fixture(scope="session")
@@ -56,7 +60,9 @@ def client(db):
 def test_user(db):
     from app.database.models import User
 
-    user = User(username="testuser", password_hash=get_password_hash("testpass"))
+    user = User(username="testuser",
+                password_hash=get_password_hash("testpass")
+                )
     db.add(user)
     db.commit()
     db.refresh(user)

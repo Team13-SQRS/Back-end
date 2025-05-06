@@ -3,7 +3,15 @@ from .models import User, Note
 from app.security.hashing import get_password_hash, verify_password
 
 
-def create_user(db: Session, username: str, password: str):
+def create_user(db: Session, username: str, password: str) -> User:
+    """Create a new user in the database.
+    Args:
+        db: Database session
+        username: Unique username
+        password: Plain-text password (will be hashed)
+    Returns:
+        User: Created user object
+    """
     hashed_password = get_password_hash(password)
     db_user = User(username=username, password_hash=hashed_password)
     db.add(db_user)
@@ -35,7 +43,12 @@ def create_note(db: Session, title: str, content: str, user_id: int):
     return db_note
 
 
-def update_note(db: Session, note_id: int, title: str = None, content: str = None):
+def update_note(
+        db: Session,
+        note_id: int,
+        title: str = None,
+        content: str = None
+):
     note = get_note_by_id(db, note_id)
     if title is not None:
         note.title = title
@@ -56,5 +69,9 @@ def delete_note(db: Session, note_id: int):
 
 def get_user_notes(db: Session, user_id: int, skip: int = 0, limit: int = 100):
     return (
-        db.query(Note).filter(Note.user_id == user_id).offset(skip).limit(limit).all()
+        db.query(Note)
+        .filter(Note.user_id == user_id)
+        .offset(skip)
+        .limit(limit)
+        .all()
     )

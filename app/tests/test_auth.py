@@ -1,3 +1,11 @@
+"""
+Comprehensive test suite for authentication endpoints covering:
+- User registration workflows
+- Token-based authentication
+- Authorization header validation
+- Error scenarios for invalid credentials
+"""
+
 from fastapi import status
 
 
@@ -57,7 +65,9 @@ def test_get_current_user(client, test_user):
     token = login_response.json()["access_token"]
 
     # Test protected endpoint
-    response = client.get("/auth/me", headers={"Authorization": f"Bearer {token}"})
+    response = client.get("/auth/me",
+                          headers={"Authorization": f"Bearer {token}"}
+                          )
     assert response.status_code == status.HTTP_200_OK
     data = response.json()
     assert data["username"] == "testuser"
@@ -65,5 +75,7 @@ def test_get_current_user(client, test_user):
 
 # Test getting current user info with invalid token returns unauthorized
 def test_get_current_user_invalid_token(client):
-    response = client.get("/auth/me", headers={"Authorization": "Bearer invalid_token"})
+    response = client.get("/auth/me",
+                          headers={"Authorization": "Bearer invalid_token"}
+                          )
     assert response.status_code == status.HTTP_401_UNAUTHORIZED

@@ -5,24 +5,21 @@ import os
 
 load_dotenv()
 
-SECRET_KEY = os.getenv("SECRET_KEY", "fallback_secret_key")
 
+# Configuration
+SECRET_KEY = os.getenv("SECRET_KEY", "fallback_secret_key")
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 30
 
 
 def create_access_token(data: dict):
-    to_encode = data.copy()
-    time_now = datetime.now(timezone.utc)
-    time_delta = timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
-    expire = time_now + time_delta
-    to_encode.update({"exp": expire})
-    encoded_jwt = jwt.encode(
-        to_encode,
-        SECRET_KEY,
-        algorithm=ALGORITHM,
+    """Create a JWT access token with an expiration time."""
+    payload = data.copy()
+    expire = datetime.now(timezone.utc) + timedelta(
+        minutes=ACCESS_TOKEN_EXPIRE_MINUTES
     )
-    return encoded_jwt
+    payload.update({"exp": expire})
+    return jwt.encode(payload, SECRET_KEY, algorithm=ALGORITHM)
 
 
 def verify_access_token(token: str):

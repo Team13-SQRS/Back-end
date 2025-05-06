@@ -11,6 +11,15 @@ oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/auth/login")
 def get_current_user(
     token: str = Depends(oauth2_scheme), db: Session = Depends(get_db)
 ):
+    """Dependency to get the authenticated user from JWT token.
+    Args:
+        token: JWT access token from Authorization header
+        db: Database session
+    Returns:
+        User: Authenticated user object
+    Raises:
+        HTTPException: 401 if token is invalid or user not found
+    """
     credentials_exception = HTTPException(
         status_code=401,
         detail="Could not validate credentials",

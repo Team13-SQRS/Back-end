@@ -21,6 +21,15 @@ Base = declarative_base()
 
 
 def get_db():
+    """Dependency that provides a database session with automatic cleanup.
+
+    Yields:
+        Session: SQLAlchemy database session
+
+    Example:
+        >>> db = next(get_db())
+        >>> db.query(User).all()
+    """
     db = SessionLocal()
     try:
         yield db

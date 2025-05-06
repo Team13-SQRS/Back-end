@@ -1,14 +1,15 @@
 import os
-from pathlib import Path
-from app.database.database import Base, engine
+from app.database.database import Base, engine, DATA_DIR
 
 
 def init_db():
+    """Create database tables if they don't exist.
 
-    base_dir = Path(__file__).resolve().parent.parent
-    data_dir = base_dir / "data"
-    os.makedirs(data_dir, exist_ok=True)
-    db_file = data_dir / "note_app.db"
+    Returns:
+        Tuple: (success status, database file path)
+    """
+    os.makedirs(DATA_DIR, exist_ok=True)
+    db_file = DATA_DIR / "note_app.db"
     db_exists = db_file.exists()
 
     if not db_exists:
@@ -22,6 +23,11 @@ def init_db():
 
 
 def check_db_connection():
+    """Perform a basic connectivity check.
+
+    Returns:
+        bool: True if connection succeeds
+    """
     try:
         with engine.connect() as conn:
             conn.execute("SELECT 1")

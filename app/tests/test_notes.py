@@ -16,7 +16,10 @@ def auth_headers(client, test_user):
 # Fixture to create a test note in the database
 @pytest.fixture
 def test_note(db, test_user):
-    note = Note(user_id=test_user.id, title="Test Note", content="Test Content")
+    note = Note(user_id=test_user.id,
+                title="Test Note",
+                content="Test Content"
+                )
     db.add(note)
     db.commit()
     db.refresh(note)
@@ -74,7 +77,9 @@ def test_update_note_success(client, auth_headers, test_note):
 
 # Test deleting a note with valid authentication
 def test_delete_note_success(client, auth_headers, test_note):
-    response = client.delete(f"/api/notes/{test_note.id}", headers=auth_headers)
+    response = client.delete(f"/api/notes/{test_note.id}",
+                             headers=auth_headers
+                             )
     assert response.status_code == status.HTTP_200_OK
 
 
